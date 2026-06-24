@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electric Aircraft Battery Degradation — Korebami Adebajo</title>
+  <meta name="description" content="Multi-domain modeling of electric aircraft battery degradation and profitability-driven charging strategy." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">KA<span>.</span></a>
+    <div class="nav__links">
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+      <a href="Korebami%20CV_Nov_25.pdf" target="_blank" class="nav__resume">Résumé ↗</a>
+    </div>
+    <div class="nav__burger"><span></span><span></span><span></span></div>
+  </div>
+  <div class="nav__mobile">
+    <a href="portfolio.html">Portfolio</a>
+    <a href="papers.html">Papers</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+    <a href="Korebami%20CV_Nov_25.pdf" target="_blank">Résumé ↗</a>
+  </div>
+</nav>
+
+<section class="proj-hero">
+  <div class="proj-hero__bg" style="background: radial-gradient(ellipse 60% 50% at 30% 20%, rgba(224,101,46,0.18) 0%, transparent 70%);"></div>
+  <div class="container proj-hero__inner">
+    <div class="breadcrumb reveal"><a href="portfolio.html">Portfolio</a> / Electric Aircraft Battery Degradation</div>
+    <div class="proj-status-row reveal">
+      <span class="project-card__status project-card__status--ongoing">Active Research</span>
+      <span class="tag tag--punch">4 Publications</span>
+    </div>
+    <h1 class="reveal reveal-delay-1">Battery Degradation &amp; Profitability Strategy for Electric Aircraft</h1>
+    <p class="proj-tagline reveal reveal-delay-2">Modeling how charging rate and flight routing shape battery life — then turning that physics into an operational decision strategy for profitability.</p>
+
+    <div class="proj-meta-bar reveal reveal-delay-3">
+      <div><div class="proj-meta-item__label">Lab</div><div class="proj-meta-item__value">ARTS Lab, USC</div></div>
+      <div><div class="proj-meta-item__label">Stack</div><div class="proj-meta-item__value">MATLAB · Simscape</div></div>
+      <div><div class="proj-meta-item__label">Timeline</div><div class="proj-meta-item__value">Feb 2022 – Present</div></div>
+      <div><div class="proj-meta-item__label">Aircraft Model</div><div class="proj-meta-item__value">Electric Cessna 206</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="proj-block reveal">
+      <span class="eyebrow">Overview</span>
+      <h2>A multi-domain model grounded in real flight paths</h2>
+      <p>This project developed and implemented a multi-domain model of an electric 6-seater Cessna 206 using MATLAB-Simscape, closely aligned with industry standards seen in the Pipistrel Velis Electro, to evaluate and optimize battery performance in electric aircraft.</p>
+      <p>Simulations analyze battery degradation across different flight routes, load profiles, and State of Charge (SOC) ranges using realistic Southeastern U.S. flight paths — not idealized test conditions. The goal from the start was extrapolation beyond observed data, not just fitting what's already been seen.</p>
+    </div>
+
+    <!-- SOC / Degradation curve diagram -->
+    <div class="proj-block reveal">
+      <span class="eyebrow">Key Finding</span>
+      <h2>SOC range directly trades off against degradation</h2>
+      <p>Evaluating specific SOC operating ranges showed up to a <strong style="color:var(--white);">3% reduction in battery degradation</strong> — a meaningful gain at fleet scale, but one that comes with a tradeoff in usable range and charging frequency that the profitability model accounts for.</p>
+
+      <div class="proj-diagram-frame">
+        <div class="proj-diagram-frame__label">Capacity Fade vs. Cycle Count — Effect of SOC Range</div>
+        <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- axes -->
+          <line x1="70" y1="40" x2="70" y2="320" stroke="#44557A" stroke-width="1.5"/>
+          <line x1="70" y1="320" x2="740" y2="320" stroke="#44557A" stroke-width="1.5"/>
+
+          <!-- gridlines -->
+          <g stroke="#20304F" stroke-width="1">
+            <line x1="70" y1="260" x2="740" y2="260"/>
+            <line x1="70" y1="200" x2="740" y2="200"/>
+            <line x1="70" y1="140" x2="740" y2="140"/>
+            <line x1="70" y1="80" x2="740" y2="80"/>
+          </g>
+
+          <!-- y labels -->
+          <text x="58" y="44" text-anchor="end" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif">100%</text>
+          <text x="58" y="84" text-anchor="end" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif">95%</text>
+          <text x="58" y="144" text-anchor="end" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif">90%</text>
+          <text x="58" y="204" text-anchor="end" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif">85%</text>
+          <text x="58" y="264" text-anchor="end" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif">80%</text>
+          <text x="58" y="324" text-anchor="end" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif">75%</text>
+          <text x="20" y="180" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif" transform="rotate(-90 20 180)">Capacity Retention</text>
+          <text x="400" y="356" text-anchor="middle" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif">Charge Cycles</text>
+
+          <!-- Wide SOC range (faster degradation) -->
+          <path d="M 70 40 C 200 60, 320 110, 420 175 C 540 245, 620 290, 740 318"
+                fill="none" stroke="#44557A" stroke-width="2.5" stroke-dasharray="5 4"/>
+          <text x="600" y="300" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif" font-weight="600">Full SOC range (0–100%)</text>
+
+          <!-- Optimized SOC range (slower degradation) -->
+          <path d="M 70 40 C 220 52, 360 78, 460 115 C 580 158, 680 200, 740 235" id="optimized-curve"
+                fill="none" stroke="#1FBE82" stroke-width="3"/>
+          <text x="560" y="200" fill="#1FBE82" font-size="11" font-family="Inter, sans-serif" font-weight="700">Optimized SOC range (−3% degradation)</text>
+
+          <!-- moving point -->
+          <circle r="5" fill="#1FBE82">
+            <animateMotion dur="3.5s" repeatCount="indefinite"
+              path="M 70 40 C 220 52, 360 78, 460 115 C 580 158, 680 200, 740 235"/>
+          </circle>
+
+          <!-- annotation -->
+          <line x1="460" y1="115" x2="460" y2="175" stroke="#E0652E" stroke-width="1.5" stroke-dasharray="3 3"/>
+          <circle cx="460" cy="115" r="4" fill="#1FBE82"/>
+          <circle cx="460" cy="175" r="4" fill="#44557A"/>
+          <text x="470" y="148" fill="#E0652E" font-size="10" font-family="Inter, sans-serif" font-weight="700">Δ retention gap widens with cycles</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Two col: methodology + decision framework -->
+    <div class="proj-2col">
+      <div class="proj-block reveal">
+        <span class="eyebrow">Predictive Modeling</span>
+        <h2>Remaining Useful Life estimation</h2>
+        <p>Predictive models for Remaining Useful Life (RUL) incorporate thermal and mechanical stress variables, guiding sustainable and economical battery usage decisions — not just predicting failure, but informing what to do about it.</p>
+        <div class="finding-list">
+          <div class="finding-item" style="--accent-color: var(--punch);">
+            <div class="finding-item__num">01</div>
+            <p>Thermal and mechanical stress integrated directly into RUL prediction, not treated as separate post-hoc corrections.</p>
+          </div>
+          <div class="finding-item" style="--accent-color: var(--punch);">
+            <div class="finding-item__num">02</div>
+            <p>Ridge regression chosen deliberately for extrapolation beyond observed flight data — tree-based methods were ruled out for this reason.</p>
+          </div>
+          <div class="finding-item" style="--accent-color: var(--punch);">
+            <div class="finding-item__num">03</div>
+            <p>Framework designed to scale across electrification efforts beyond aviation — applicable to broader sustainable transportation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-block reveal reveal-delay-1">
+        <span class="eyebrow">From Physics to Decisions</span>
+        <h2>The profitability layer</h2>
+        <p>The degradation model now feeds a decision strategy framework: given battery behavior as the dominant cost factor, which charging rates and flight distances maximize operational profitability over the aircraft's service life?</p>
+        <div class="quote-block" style="border-left-color: var(--punch);">
+          <p>"Battery degradation isn't just a maintenance concern — it's the primary economic variable in electric aviation operations."</p>
+          <cite>— Core thesis of the profitability framework</cite>
+        </div>
+      </div>
+    </div>
+
+    <!-- Connection -->
+    <div class="proj-block reveal" style="background:var(--dark-2); border:1px solid var(--dark-3); border-radius:var(--radius-lg); padding:2.5rem;">
+      <span class="eyebrow">How This Connects</span>
+      <h2>The template for the SMR framework</h2>
+      <p>This lifecycle-modeling methodology — physics-based degradation prediction informing operational decisions — is the direct template applied to the <a href="project-smr.html" style="color:var(--punch);">SMR cyber-physical emulator</a>. The aircraft proves the approach works; the reactor proves it generalizes.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Continue Exploring</span>
+      <h2>Related Projects</h2>
+    </div>
+    <div class="related-projects">
+      <a href="project-smr.html" class="project-card reveal" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(31,190,130,0.4);--card-color-b:rgba(31,190,130,0.15);">⚛️</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status project-card__status--ongoing">Active Research</div>
+          <h3>SMR Cyber-Physical Emulator</h3>
+          <p>Same lifecycle modeling methodology applied to nuclear grid systems.</p>
+        </div>
+      </a>
+      <a href="project-uav.html" class="project-card reveal reveal-delay-1" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(46,124,214,0.4);--card-color-b:rgba(46,124,214,0.15);">🛸</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status project-card__status--ongoing">Active Research</div>
+          <h3>UAV Sensor Deployment</h3>
+          <p>Shares the digital twin philosophy through SWIFT-UAV integration.</p>
+        </div>
+      </a>
+      <a href="papers.html" class="project-card reveal reveal-delay-2" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(139,151,181,0.3);--card-color-b:rgba(139,151,181,0.1);">→</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status" style="color:var(--muted);">Browse All</div>
+          <h3>View Publications</h3>
+          <p>4 papers from this project across AIAA and ASME.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">KA<span>.</span></div>
+    <div class="footer__links">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+    <div class="footer__social">
+      <a href="https://www.linkedin.com/in/korebami-adebajo" target="_blank">in</a>
+      <a href="mailto:oyinkansoaadebajo@gmail.com">@</a>
+    </div>
+    <div class="footer__copy">© 2026 Korebami O. Adebajo · University of South Carolina</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UAV Autonomous Sensor Deployment — Korebami Adebajo</title>
+  <meta name="description" content="Autonomous UAV control using ROS, MAVLink, and deep learning for infrastructure sensor deployment." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">KA<span>.</span></a>
+    <div class="nav__links">
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+      <a href="Korebami%20CV_Nov_25.pdf" target="_blank" class="nav__resume">Résumé ↗</a>
+    </div>
+    <div class="nav__burger"><span></span><span></span><span></span></div>
+  </div>
+  <div class="nav__mobile">
+    <a href="portfolio.html">Portfolio</a>
+    <a href="papers.html">Papers</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+    <a href="Korebami%20CV_Nov_25.pdf" target="_blank">Résumé ↗</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="proj-hero">
+  <div class="proj-hero__bg" style="background: radial-gradient(ellipse 60% 50% at 30% 20%, rgba(46,124,214,0.18) 0%, transparent 70%);"></div>
+  <div class="container proj-hero__inner">
+    <div class="breadcrumb reveal"><a href="portfolio.html">Portfolio</a> / UAV Autonomous Sensor Deployment</div>
+    <div class="proj-status-row reveal">
+      <span class="project-card__status project-card__status--ongoing">Active Research</span>
+      <span class="tag tag--blue">3 Publications</span>
+    </div>
+    <h1 class="reveal reveal-delay-1">UAV Autonomous Sensor Deployment for Infrastructure Monitoring</h1>
+    <p class="proj-tagline reveal reveal-delay-2">Teaching a hexacopter to see, localize, and dock on its own — closing the loop between perception and physical inspection of critical infrastructure.</p>
+
+    <div class="proj-meta-bar reveal reveal-delay-3">
+      <div>
+        <div class="proj-meta-item__label">Lab</div>
+        <div class="proj-meta-item__value">ARTS Lab, USC</div>
+      </div>
+      <div>
+        <div class="proj-meta-item__label">Stack</div>
+        <div class="proj-meta-item__value">ROS · MAVLink · ArduPilot</div>
+      </div>
+      <div>
+        <div class="proj-meta-item__label">Timeline</div>
+        <div class="proj-meta-item__value">Feb 2022 – Present</div>
+      </div>
+      <div>
+        <div class="proj-meta-item__label">Role</div>
+        <div class="proj-meta-item__value">Researcher</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Overview -->
+    <div class="proj-block reveal">
+      <span class="eyebrow">Overview</span>
+      <h2>From manual flight to autonomous docking</h2>
+      <p>This project tunes and calibrates control systems for a hexacopter UAV to achieve stable flight and precise maneuvering during docking operations — the precision step required before any sensor package can be reliably attached to civil infrastructure.</p>
+      <p>On top of that flight-stable platform, we're developing a deep learning model that replicates pilot actions through end-to-end control, enabling the UAV to autonomously identify, track, and navigate toward a docking station based purely on visual data — including in GPS-denied environments using stereo vision and fisheye ground-camera networks.</p>
+    </div>
+
+    <!-- Diagram: localization + occupancy grid -->
+    <div class="proj-block reveal">
+      <span class="eyebrow">Methodology</span>
+      <h2>Vision-based localization &amp; approach planning</h2>
+      <p>The UAV builds a real-time occupancy understanding of the structure it's approaching, fuses stereo and fisheye camera data for localization, and plans a path toward the docking point — all without relying on GPS.</p>
+
+      <div class="proj-diagram-frame">
+        <div class="proj-diagram-frame__label">Occupancy Grid &amp; Approach Path — GPS-Denied Docking</div>
+        <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" id="uav-grid-svg">
+          <defs>
+            <pattern id="gridPattern" width="28" height="28" patternUnits="userSpaceOnUse">
+              <rect width="28" height="28" fill="none" stroke="#20304F" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="800" height="420" fill="#16223D"/>
+          <rect x="40" y="30" width="720" height="360" fill="url(#gridPattern)"/>
+
+          <!-- occupied/obstacle cells -->
+          <g fill="#8B97B5" opacity="0.35">
+            <rect x="180" y="86" width="28" height="28"/>
+            <rect x="208" y="86" width="28" height="28"/>
+            <rect x="180" y="114" width="28" height="28"/>
+            <rect x="460" y="170" width="28" height="28"/>
+            <rect x="488" y="170" width="28" height="28"/>
+            <rect x="488" y="198" width="28" height="28"/>
+            <rect x="320" y="282" width="28" height="28"/>
+            <rect x="348" y="282" width="28" height="28"/>
+            <rect x="600" y="226" width="28" height="28"/>
+          </g>
+
+          <!-- structure (docking target) -->
+          <rect x="650" y="142" width="84" height="140" fill="#20304F" stroke="#44557A" stroke-width="1.5"/>
+          <text x="692" y="120" text-anchor="middle" fill="#8B97B5" font-size="11" font-family="Inter, sans-serif" font-weight="600">CIVIL STRUCTURE</text>
+          <circle cx="650" cy="210" r="6" fill="#1FBE82" id="dock-point"/>
+          <text x="630" y="232" text-anchor="end" fill="#1FBE82" font-size="10" font-family="Inter, sans-serif" font-weight="700">DOCK POINT</text>
+
+          <!-- UAV start -->
+          <g id="uav-marker">
+            <circle cx="90" cy="350" r="9" fill="#2E7CD6"/>
+            <circle cx="90" cy="350" r="9" fill="none" stroke="#2E7CD6" stroke-width="2" opacity="0.5">
+              <animate attributeName="r" values="9;18;9" dur="2.4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.5;0;0.5" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          <text x="90" y="375" text-anchor="middle" fill="#2E7CD6" font-size="10" font-family="Inter, sans-serif" font-weight="700">UAV</text>
+
+          <!-- planned path avoiding obstacles -->
+          <path d="M 90 350 Q 200 360 250 300 Q 300 250 280 200 Q 260 150 350 130 Q 450 110 550 140 Q 600 160 650 210"
+                fill="none" stroke="#E0652E" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round" id="path-line"/>
+
+          <!-- moving dot along path -->
+          <circle r="5" fill="#E0652E">
+            <animateMotion dur="4s" repeatCount="indefinite"
+              path="M 90 350 Q 200 360 250 300 Q 300 250 280 200 Q 260 150 350 130 Q 450 110 550 140 Q 600 160 650 210"/>
+          </circle>
+
+          <text x="56" y="56" fill="#C9D2E8" font-size="11" font-family="Inter, sans-serif" font-weight="600">Occupancy Grid</text>
+          <text x="56" y="406" fill="#8B97B5" font-size="9" font-family="Inter, sans-serif">Gray cells = detected obstacles · Orange = planned approach path</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Two col: stack + findings -->
+    <div class="proj-2col">
+      <div class="proj-block reveal">
+        <span class="eyebrow">Technical Approach</span>
+        <h2>Stack &amp; pipeline</h2>
+        <p>Flight control runs through ArduPilot with MAVLink as the communication layer to ROS, where perception and decision nodes process incoming stereo and fisheye camera feeds.</p>
+        <div class="finding-list">
+          <div class="finding-item" style="--accent-color: var(--blue);">
+            <div class="finding-item__num">01</div>
+            <p>Stereo YOLO-based localization for real-time obstacle and target detection without GPS dependency.</p>
+          </div>
+          <div class="finding-item" style="--accent-color: var(--blue);">
+            <div class="finding-item__num">02</div>
+            <p>Fisheye ground-camera network supplements onboard vision for post-disaster structure inspection scenarios.</p>
+          </div>
+          <div class="finding-item" style="--accent-color: var(--blue);">
+            <div class="finding-item__num">03</div>
+            <p>End-to-end deep learning control replicates pilot docking behavior, reducing reliance on hand-tuned control laws.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-block reveal reveal-delay-1">
+        <span class="eyebrow">Publications</span>
+        <h2>Resulting work</h2>
+        <div class="finding-list">
+          <div class="finding-item" style="--accent-color: var(--green); border-left-color: var(--green);">
+            <p><strong style="color:var(--white);">Stereo YOLO UAV Localization and Tracking</strong><br>AIAA SCITECH 2026 Forum</p>
+          </div>
+          <div class="finding-item" style="--accent-color: var(--green); border-left-color: var(--green);">
+            <p><strong style="color:var(--white);">ML-Based UAV Localization in GPS-Denied Environments</strong><br>SPIE Sensors and Smart Structures 2026</p>
+          </div>
+          <div class="finding-item" style="--accent-color: var(--green); border-left-color: var(--green);">
+            <p><strong style="color:var(--white);">Vision-Based UAV Localization Using Fisheye Ground-Camera Network</strong><br>SPIE Defense + Commercial Sensing 2026</p>
+          </div>
+        </div>
+        <a href="papers.html" class="btn btn--ghost" style="margin-top:1.5rem;">View Full Publications →</a>
+      </div>
+    </div>
+
+    <!-- Connection to digital twin -->
+    <div class="proj-block reveal" style="background:var(--dark-2); border:1px solid var(--dark-3); border-radius:var(--radius-lg); padding:2.5rem;">
+      <span class="eyebrow">How This Connects</span>
+      <h2>Part of the digital twin framework</h2>
+      <p>This UAV platform is also the testbed for the <strong style="color:var(--white);">SWIFT-UAV digital twin integration work</strong> — using the same sensing infrastructure built here to feed online battery health estimation, linking aerial autonomy directly to the lifecycle-aware decision-making philosophy that runs through the battery and SMR projects.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Related projects -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Continue Exploring</span>
+      <h2>Related Projects</h2>
+    </div>
+    <div class="related-projects">
+      <a href="project-battery.html" class="project-card reveal" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(224,101,46,0.4);--card-color-b:rgba(224,101,46,0.15);">⚡</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status project-card__status--ongoing">Active Research</div>
+          <h3>Electric Aircraft Battery Degradation</h3>
+          <p>Lifecycle modeling methodology shared across this project's digital twin framework.</p>
+        </div>
+      </a>
+      <a href="project-rover.html" class="project-card reveal reveal-delay-1" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(46,124,214,0.3);--card-color-b:rgba(31,190,130,0.15);">🤖</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status project-card__status--design">In Design</div>
+          <h3>Autonomous Ground Rover</h3>
+          <p>Extends this UAV autonomy paradigm to ground-based inspection platforms.</p>
+        </div>
+      </a>
+      <a href="portfolio.html" class="project-card reveal reveal-delay-2" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(139,151,181,0.3);--card-color-b:rgba(139,151,181,0.1);">→</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status" style="color:var(--muted);">Browse All</div>
+          <h3>View Full Portfolio</h3>
+          <p>See all research projects and how they interconnect.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">KA<span>.</span></div>
+    <div class="footer__links">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+    <div class="footer__social">
+      <a href="https://www.linkedin.com/in/korebami-adebajo" target="_blank">in</a>
+      <a href="mailto:oyinkansoaadebajo@gmail.com">@</a>
+    </div>
+    <div class="footer__copy">© 2026 Korebami O. Adebajo · University of South Carolina</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

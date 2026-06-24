@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monopropellant Engine for Soft Robotics — Korebami Adebajo</title>
+  <meta name="description" content="MIT MSRP research on monopropellant engines for untethered soft robotics, published at IEEE RoboSoft 2025." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">KA<span>.</span></a>
+    <div class="nav__links">
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+      <a href="Korebami%20CV_Nov_25.pdf" target="_blank" class="nav__resume">Résumé ↗</a>
+    </div>
+    <div class="nav__burger"><span></span><span></span><span></span></div>
+  </div>
+  <div class="nav__mobile">
+    <a href="portfolio.html">Portfolio</a>
+    <a href="papers.html">Papers</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+    <a href="Korebami%20CV_Nov_25.pdf" target="_blank">Résumé ↗</a>
+  </div>
+</nav>
+
+<section class="proj-hero">
+  <div class="proj-hero__bg" style="background: radial-gradient(ellipse 60% 50% at 30% 20%, rgba(139,151,181,0.15) 0%, transparent 70%);"></div>
+  <div class="container proj-hero__inner">
+    <div class="breadcrumb reveal"><a href="portfolio.html">Portfolio</a> / Monopropellant Engine for Soft Robotics</div>
+    <div class="proj-status-row reveal">
+      <span class="project-card__status" style="color:var(--muted);">Completed · MIT MSRP 2024</span>
+      <span class="tag">IEEE RoboSoft 2025</span>
+    </div>
+    <h1 class="reveal reveal-delay-1">Monopropellant Engine for Untethered Soft Robotics</h1>
+    <p class="proj-tagline reveal reveal-delay-2">A summer at MIT's Therapeutic Technology Design &amp; Development Lab — modeling, building, and testing a pressure-amplifying actuator engine from the bench up.</p>
+
+    <div class="proj-meta-bar reveal reveal-delay-3">
+      <div><div class="proj-meta-item__label">Lab</div><div class="proj-meta-item__value">MIT TTDD Lab</div></div>
+      <div><div class="proj-meta-item__label">Advisors</div><div class="proj-meta-item__value">Prof. Ellen Roche · Prof. Kaitlyn Becker</div></div>
+      <div><div class="proj-meta-item__label">Timeline</div><div class="proj-meta-item__value">Jun – Nov 2024</div></div>
+      <div><div class="proj-meta-item__label">Program</div><div class="proj-meta-item__value">MIT MSRP</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="proj-block reveal">
+      <span class="eyebrow">Overview</span>
+      <h2>Predicting — then proving — actuator behavior</h2>
+      <p>This project developed a MATLAB-based predictive model to characterize and optimize the decomposition of hydrogen peroxide in propellant-based actuators for untethered soft robotics, focusing on critical parameters: chamber geometry, catalyst size, reaction rate, temperature, and pressure.</p>
+      <p>A key conceptual contribution was introducing <strong style="color:var(--white);">residence time</strong> as a design variable — establishing its importance for fuel efficiency and control. Findings showed that reducing the reactor's width-to-height ratio enhances residence time, improving both predictability and power output.</p>
+    </div>
+
+    <!-- Photo Gallery -->
+    <div class="proj-block reveal">
+      <span class="eyebrow">In the Lab</span>
+      <h2>From simulation to bench testing</h2>
+      <p>Experimental validation paired every model prediction with bench testing — adjusting fuel volume, flow rate, and catalyst surface area to assess real pressurization behavior.</p>
+
+      <div class="gallery-grid gallery--featured">
+        <div class="gallery-item gallery-item--video" data-lightbox="video" data-src="figures/MIT research experimentation.mp4" data-caption="MIT research experimentation — propellant actuator test">
+          <video src="figures/MIT research experimentation.mp4" muted loop playsinline></video>
+          <div class="gallery-item__caption">Experimentation footage</div>
+        </div>
+        <div class="gallery-item" data-lightbox="image" data-src="figures/Experiment setup (MSRP).jpg" data-caption="Experiment setup — MSRP">
+          <img src="figures/Experiment setup (MSRP).jpg" alt="Experiment setup MSRP" loading="lazy" />
+          <div class="gallery-item__caption">Experiment setup</div>
+        </div>
+        <div class="gallery-item" data-lightbox="image" data-src="figures/MSRP me at scope in the lab.jpg" data-caption="At the scope in the lab">
+          <img src="figures/MSRP me at scope in the lab.jpg" alt="At the scope in the lab" loading="lazy" />
+          <div class="gallery-item__caption">At the scope</div>
+        </div>
+        <div class="gallery-item" data-lightbox="image" data-src="figures/MSRP me at scope in the lab zoomed in.jpg" data-caption="Scope detail, zoomed in">
+          <img src="figures/MSRP me at scope in the lab zoomed in.jpg" alt="Scope detail zoomed in" loading="lazy" />
+          <div class="gallery-item__caption">Scope — detail view</div>
+        </div>
+        <div class="gallery-item" data-lightbox="image" data-src="figures/Me in MIT research lab.jpg" data-caption="In the MIT research lab">
+          <img src="figures/Me in MIT research lab.jpg" alt="In the MIT research lab" loading="lazy" />
+          <div class="gallery-item__caption">MIT research lab</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two col -->
+    <div class="proj-2col">
+      <div class="proj-block reveal">
+        <span class="eyebrow">Engineering Outcome</span>
+        <h2>A full-seal redesign</h2>
+        <p>Beyond modeling, the fuel reactor engine itself was redesigned to achieve a full seal — eliminating leaks and improving retention by <strong style="color:var(--white);">50%</strong>, enabling reliable integration into full robotic systems.</p>
+        <div class="finding-list">
+          <div class="finding-item" style="--accent-color: var(--mid); border-left-color: var(--mid);">
+            <div class="finding-item__num">01</div>
+            <p>Width-to-height ratio reduction increased residence time, directly improving predictability and power.</p>
+          </div>
+          <div class="finding-item" style="--accent-color: var(--mid); border-left-color: var(--mid);">
+            <div class="finding-item__num">02</div>
+            <p>Full-seal redesign improved fuel retention by 50%, removing a key failure mode for untethered operation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="proj-block reveal reveal-delay-1">
+        <span class="eyebrow">Mentorship</span>
+        <h2>Paying it forward</h2>
+        <p>Alongside the core research, this summer included mentoring a high school student through a parallel project — guiding their analysis of fuel injection methods and fostering their understanding of energy-efficient design in soft robotics.</p>
+        <p>This experience directly led to a continued role as an <strong style="color:var(--white);">MSRP Ambassador and application reviewer</strong> from December 2025 to March 2026.</p>
+      </div>
+    </div>
+
+    <!-- Posters -->
+    <div class="proj-block reveal">
+      <span class="eyebrow">Presentations</span>
+      <h2>Symposium posters</h2>
+      <p>Results were presented at the MIT MSRP Research Symposium 2024, with a follow-up extension poster developed in the fall.</p>
+      <div class="gallery-grid" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="gallery-item" style="aspect-ratio:3/4;" data-lightbox="image" data-src="figures/MSRP summer poster.png" data-caption="MSRP Summer Poster 2024">
+          <img src="figures/MSRP summer poster.png" alt="MSRP summer poster" loading="lazy" />
+          <div class="gallery-item__caption">Summer Poster</div>
+        </div>
+        <div class="gallery-item" style="aspect-ratio:3/4;" data-lightbox="image" data-src="figures/MSRP Fall extension poster.png" data-caption="MSRP Fall Extension Poster">
+          <img src="figures/MSRP Fall extension poster.png" alt="MSRP fall extension poster" loading="lazy" />
+          <div class="gallery-item__caption">Fall Extension Poster</div>
+        </div>
+      </div>
+      <div style="margin-top:1rem;">
+        <img src="figures/MSRP_research_symposium.jpeg" alt="MSRP research symposium presentation" style="width:100%;border-radius:var(--radius-lg);border:1px solid var(--dark-3);cursor:pointer;" loading="lazy" data-lightbox="image" data-src="figures/MSRP_research_symposium.jpeg" data-caption="Presenting at the MIT MSRP Research Symposium" onclick="openLightbox(this)" />
+      </div>
+    </div>
+
+    <div class="proj-block reveal" style="background:var(--dark-2); border:1px solid var(--dark-3); border-radius:var(--radius-lg); padding:2.5rem;">
+      <span class="eyebrow">Publication</span>
+      <h2>An Actuator-Scale, Pressure-Amplifying, Monopropellant Engine for Untethered Pneumatic Systems</h2>
+      <p style="color:var(--muted); margin-bottom:1.25rem;">Samuel Dutra Gollob, Alberto Comoretto, Qifan Yu, Matthew Fernandez, <strong style="color:var(--white);">Korebami O. Adebajo</strong>, Johannes T. B. Overvelde, Kaitlyn Becker, Ellen Roche</p>
+      <p style="margin-bottom:0;"><span class="tag">IEEE RoboSoft Conference 2025</span></p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Continue Exploring</span>
+      <h2>Related Projects</h2>
+    </div>
+    <div class="related-projects">
+      <a href="project-battery.html" class="project-card reveal" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(224,101,46,0.4);--card-color-b:rgba(224,101,46,0.15);">⚡</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status project-card__status--ongoing">Active Research</div>
+          <h3>Electric Aircraft Battery Degradation</h3>
+          <p>Another physics-driven modeling project with strong experimental grounding.</p>
+        </div>
+      </a>
+      <a href="project-uav.html" class="project-card reveal reveal-delay-1" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(46,124,214,0.4);--card-color-b:rgba(46,124,214,0.15);">🛸</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status project-card__status--ongoing">Active Research</div>
+          <h3>UAV Sensor Deployment</h3>
+          <p>The primary research thread at USC's ARTS Lab.</p>
+        </div>
+      </a>
+      <a href="papers.html" class="project-card reveal reveal-delay-2" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(139,151,181,0.3);--card-color-b:rgba(139,151,181,0.1);">→</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status" style="color:var(--muted);">Browse All</div>
+          <h3>View Publications</h3>
+          <p>See all peer-reviewed work across every project.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">KA<span>.</span></div>
+    <div class="footer__links">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+    <div class="footer__social">
+      <a href="https://www.linkedin.com/in/korebami-adebajo" target="_blank">in</a>
+      <a href="mailto:oyinkansoaadebajo@gmail.com">@</a>
+    </div>
+    <div class="footer__copy">© 2026 Korebami O. Adebajo · University of South Carolina</div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox__content" id="lightbox-content"></div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  function openLightbox(el) {
+    const type = el.dataset.lightbox;
+    const src = el.dataset.src;
+    const caption = el.dataset.caption || '';
+    const content = document.getElementById('lightbox-content');
+    if (type === 'video') {
+      content.innerHTML = `<video src="${src}" controls autoplay style="max-width:90vw;max-height:80vh;border-radius:8px;"></video><div class="lightbox__caption">${caption}</div>`;
+    } else {
+      content.innerHTML = `<img src="${src}" alt="${caption}" /><div class="lightbox__caption">${caption}</div>`;
+    }
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox-content').innerHTML = '';
+  }
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Autoplay gallery video preview on hover
+  document.querySelectorAll('.gallery-item--video video').forEach(v => {
+    v.parentElement.addEventListener('mouseenter', () => v.play());
+    v.parentElement.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+  });
+</script>
+</body>
+</html>

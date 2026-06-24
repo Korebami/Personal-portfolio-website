@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMR Cyber-Physical Emulator — Korebami Adebajo</title>
+  <meta name="description" content="Design architecture of a cyber-physical small modular reactor emulator for real-time control and grid interaction." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">KA<span>.</span></a>
+    <div class="nav__links">
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+      <a href="Korebami%20CV_Nov_25.pdf" target="_blank" class="nav__resume">Résumé ↗</a>
+    </div>
+    <div class="nav__burger"><span></span><span></span><span></span></div>
+  </div>
+  <div class="nav__mobile">
+    <a href="portfolio.html">Portfolio</a>
+    <a href="papers.html">Papers</a>
+    <a href="about.html">About</a>
+    <a href="about.html#contact">Contact</a>
+    <a href="Korebami%20CV_Nov_25.pdf" target="_blank">Résumé ↗</a>
+  </div>
+</nav>
+
+<section class="proj-hero">
+  <div class="proj-hero__bg" style="background: radial-gradient(ellipse 60% 50% at 30% 20%, rgba(31,190,130,0.18) 0%, transparent 70%);"></div>
+  <div class="container proj-hero__inner">
+    <div class="breadcrumb reveal"><a href="portfolio.html">Portfolio</a> / SMR Cyber-Physical Emulator</div>
+    <div class="proj-status-row reveal">
+      <span class="project-card__status project-card__status--ongoing">Active Research</span>
+      <span class="tag tag--green">In Press — ASME IDETC 2025</span>
+    </div>
+    <h1 class="reveal reveal-delay-1">Cyber-Physical Small Modular Reactor Emulator</h1>
+    <p class="proj-tagline reveal reveal-delay-2">Extending lifecycle-aware decision-making from electric aviation to nuclear grid systems — real-time control and grid interaction, modeled and emulated.</p>
+
+    <div class="proj-meta-bar reveal reveal-delay-3">
+      <div><div class="proj-meta-item__label">Lab</div><div class="proj-meta-item__value">ARTS Lab, USC</div></div>
+      <div><div class="proj-meta-item__label">Stack</div><div class="proj-meta-item__value">MATLAB · CPS Design</div></div>
+      <div><div class="proj-meta-item__label">Venue</div><div class="proj-meta-item__value">ASME IDETC</div></div>
+      <div><div class="proj-meta-item__label">Status</div><div class="proj-meta-item__value">Awaiting Publication</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="proj-block reveal">
+      <span class="eyebrow">Overview</span>
+      <h2>Proving the methodology generalizes</h2>
+      <p>The design architecture of a cyber-physical small modular reactor (SMR) emulator enables real-time control and grid interaction analysis without requiring access to an actual reactor. This is a lifecycle monitoring system structurally analogous to the electric aircraft battery framework — but applied to an entirely different physical domain.</p>
+      <p>Where the aircraft work asks "how does battery degradation affect flight economics?", the SMR work asks the parallel question: "how does component lifecycle state inform reactor output and maintenance decisions, and how does that ripple into grid-level interaction?"</p>
+    </div>
+
+    <!-- Grid interaction / control loop diagram -->
+    <div class="proj-block reveal">
+      <span class="eyebrow">System Architecture</span>
+      <h2>Real-time control loop &amp; grid interaction</h2>
+      <p>The emulator models the reactor's physical behavior, estimates component health and expected output capacity, and feeds that into control decisions that determine how the system interacts with the grid in real time.</p>
+
+      <div class="proj-diagram-frame">
+        <div class="proj-diagram-frame__label">Cyber-Physical Control Architecture</div>
+        <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+          <!-- Reactor core box -->
+          <rect x="50" y="130" width="160" height="100" rx="6" fill="#16223D" stroke="#1FBE82" stroke-width="2"/>
+          <text x="130" y="170" text-anchor="middle" fill="#3de0a0" font-size="13" font-weight="700" font-family="Inter, sans-serif">SMR Core</text>
+          <text x="130" y="190" text-anchor="middle" fill="#8B97B5" font-size="10" font-family="Inter, sans-serif">Physical Emulation</text>
+          <circle cx="130" cy="208" r="4" fill="#1FBE82">
+            <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- arrow 1 -->
+          <path d="M 210 180 L 280 180" stroke="#44557A" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="245" y="170" text-anchor="middle" fill="#8B97B5" font-size="9" font-family="Inter, sans-serif">sensor data</text>
+
+          <!-- State estimation box -->
+          <rect x="290" y="130" width="170" height="100" rx="6" fill="#16223D" stroke="#2E7CD6" stroke-width="2"/>
+          <text x="375" y="165" text-anchor="middle" fill="#7ac0ff" font-size="13" font-weight="700" font-family="Inter, sans-serif">Lifecycle State</text>
+          <text x="375" y="183" text-anchor="middle" fill="#8B97B5" font-size="10" font-family="Inter, sans-serif">Estimation</text>
+          <text x="375" y="200" text-anchor="middle" fill="#8B97B5" font-size="10" font-family="Inter, sans-serif">Component Health Index</text>
+
+          <!-- arrow 2 -->
+          <path d="M 460 180 L 530 180" stroke="#44557A" stroke-width="2" marker-end="url(#arrowhead)"/>
+          <text x="495" y="170" text-anchor="middle" fill="#8B97B5" font-size="9" font-family="Inter, sans-serif">health data</text>
+
+          <!-- Decision/control box -->
+          <rect x="540" y="130" width="170" height="100" rx="6" fill="#16223D" stroke="#E0652E" stroke-width="2"/>
+          <text x="625" y="165" text-anchor="middle" fill="#f0844e" font-size="13" font-weight="700" font-family="Inter, sans-serif">Control Decision</text>
+          <text x="625" y="183" text-anchor="middle" fill="#8B97B5" font-size="10" font-family="Inter, sans-serif">Output / Maintenance</text>
+          <text x="625" y="200" text-anchor="middle" fill="#8B97B5" font-size="10" font-family="Inter, sans-serif">Action Selection</text>
+
+          <!-- arrow down to grid -->
+          <path d="M 625 230 L 625 270" stroke="#44557A" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+          <!-- Grid box -->
+          <rect x="500" y="278" width="260" height="56" rx="6" fill="#20304F" stroke="#44557A" stroke-width="1.5"/>
+          <text x="630" y="310" text-anchor="middle" fill="#C9D2E8" font-size="12" font-weight="600" font-family="Inter, sans-serif">Grid Interaction (Real-Time)</text>
+
+          <!-- feedback loop back to core -->
+          <path d="M 625 334 C 625 350, 130 350, 130 230" fill="none" stroke="#1FBE82" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+          <text x="375" y="346" text-anchor="middle" fill="#1FBE82" font-size="9" font-family="Inter, sans-serif" font-weight="600">feedback loop · closes the cycle</text>
+
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#44557A"/>
+            </marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <div class="proj-2col">
+      <div class="proj-block reveal">
+        <span class="eyebrow">Why an Emulator</span>
+        <h2>Testing control strategy safely</h2>
+        <p>A cyber-physical emulator allows real-time control and grid-interaction strategies to be tested and refined without the cost, risk, or access constraints of a physical reactor — critical for a technology still scaling toward commercial deployment.</p>
+        <div class="finding-list">
+          <div class="finding-item" style="--accent-color: var(--green);">
+            <div class="finding-item__num">01</div>
+            <p>Real-time control loop validated against emulated physical dynamics before any hardware-in-the-loop testing.</p>
+          </div>
+          <div class="finding-item" style="--accent-color: var(--green);">
+            <div class="finding-item__num">02</div>
+            <p>Grid interaction modeled explicitly, not abstracted away — output decisions are made with grid-level consequences in view.</p>
+          </div>
+        </div>
+      </div>
+      <div class="proj-block reveal reveal-delay-1">
+        <span class="eyebrow">Status</span>
+        <h2>Awaiting publication</h2>
+        <p>The full paper, <em>"Design Architecture of a Cyber-Physical Small Modular Reactor Emulator for Real-Time Control and Grid Interaction,"</em> is in press for ASME IDETC 2025. Full citation details will be added once the conference proceedings are published.</p>
+      </div>
+    </div>
+
+    <div class="proj-block reveal" style="background:var(--dark-2); border:1px solid var(--dark-3); border-radius:var(--radius-lg); padding:2.5rem;">
+      <span class="eyebrow">How This Connects</span>
+      <h2>Proof that the framework generalizes</h2>
+      <p>The same architecture pioneered in the <a href="project-battery.html" style="color:var(--green);">electric aircraft battery degradation work</a> — physics modeling → lifecycle estimation → informed decision — is demonstrated here in a completely different physical domain. That's the strongest evidence yet that this is a genuine methodology, not a one-off solution.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Continue Exploring</span>
+      <h2>Related Projects</h2>
+    </div>
+    <div class="related-projects">
+      <a href="project-battery.html" class="project-card reveal" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(224,101,46,0.4);--card-color-b:rgba(224,101,46,0.15);">⚡</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status project-card__status--ongoing">Active Research</div>
+          <h3>Electric Aircraft Battery Degradation</h3>
+          <p>The original lifecycle modeling framework this project extends.</p>
+        </div>
+      </a>
+      <a href="project-uav.html" class="project-card reveal reveal-delay-1" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(46,124,214,0.4);--card-color-b:rgba(46,124,214,0.15);">🛸</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status project-card__status--ongoing">Active Research</div>
+          <h3>UAV Sensor Deployment</h3>
+          <p>A third domain applying the same autonomy-meets-physics philosophy.</p>
+        </div>
+      </a>
+      <a href="papers.html" class="project-card reveal reveal-delay-2" style="text-decoration:none;">
+        <div class="project-card__image"><div class="project-card__image-inner" style="--card-color-a:rgba(139,151,181,0.3);--card-color-b:rgba(139,151,181,0.1);">→</div></div>
+        <div class="project-card__body">
+          <div class="project-card__status" style="color:var(--muted);">Browse All</div>
+          <h3>View Publications</h3>
+          <p>See all peer-reviewed work across every project.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">KA<span>.</span></div>
+    <div class="footer__links">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="papers.html">Papers</a>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+    <div class="footer__social">
+      <a href="https://www.linkedin.com/in/korebami-adebajo" target="_blank">in</a>
+      <a href="mailto:oyinkansoaadebajo@gmail.com">@</a>
+    </div>
+    <div class="footer__copy">© 2026 Korebami O. Adebajo · University of South Carolina</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

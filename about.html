@@ -6,6 +6,7 @@
   <title>About — Korebami Adebajo</title>
   <meta name="description" content="About Korebami Adebajo — PhD Mechanical Engineering researcher at USC specializing in digital twins, battery systems, and autonomous vehicles." />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
   <style>
     .skills-group { margin-bottom:2.5rem; }
     .skills-group h4 {
@@ -319,6 +320,38 @@
   </div>
 </section>
 
+<!-- Research Gallery -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">In the Field</span>
+      <h2>Conference &amp; Lab Moments</h2>
+      <p>Highlights from presenting and conducting research at USC and MIT.</p>
+    </div>
+    <div class="gallery-grid gallery--featured" style="margin-bottom:1rem;">
+      <div class="gallery-item" data-lightbox="image" data-src="figures/Discover USC presentation day.jpeg" data-caption="Presenting at Discover USC">
+        <img src="figures/Discover USC presentation day.jpeg" alt="Discover USC presentation day" loading="lazy" />
+        <div class="gallery-item__caption">Discover USC — Presentation Day</div>
+      </div>
+      <div class="gallery-item" data-lightbox="image" data-src="figures/Discover USC poster.png" data-caption="Discover USC Poster — Electric Airplane Modeling">
+        <img src="figures/Discover USC poster.png" alt="Discover USC poster" loading="lazy" />
+        <div class="gallery-item__caption">Discover USC Poster</div>
+      </div>
+      <div class="gallery-item" data-lightbox="image" data-src="figures/Discover USC poster2.png" data-caption="Discover USC Poster 2">
+        <img src="figures/Discover USC poster2.png" alt="Discover USC poster 2" loading="lazy" />
+        <div class="gallery-item__caption">Discover USC Poster 2</div>
+      </div>
+      <div class="gallery-item" data-lightbox="image" data-src="figures/Battery_Symposium_Poster.png" data-caption="SC Battery Symposium Poster">
+        <img src="figures/Battery_Symposium_Poster.png" alt="Battery Symposium Poster" loading="lazy" />
+        <div class="gallery-item__caption">SC Battery Symposium</div>
+      </div>
+    </div>
+    <div style="text-align:center;" class="reveal">
+      <a href="project-mit.html" class="btn btn--ghost">See Full MIT Research Gallery →</a>
+    </div>
+  </div>
+</section>
+
 <!-- Collaborators -->
 <section class="section section--dark">
   <div class="container">
@@ -411,6 +444,33 @@
   </div>
 </footer>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox__content" id="lightbox-content"></div>
+</div>
+
 <script src="js/main.js"></script>
+<script>
+  function openLightbox(el) {
+    const src = el.dataset.src;
+    const caption = el.dataset.caption || '';
+    document.getElementById('lightbox-content').innerHTML = `<img src="${src}" alt="${caption}" /><div class="lightbox__caption">${caption}</div>`;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox-content').innerHTML = '';
+  }
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 </body>
 </html>
